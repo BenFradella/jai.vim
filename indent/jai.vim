@@ -33,6 +33,10 @@ function! GetJaiIndent(lnum)
     let ind += &sw
   endif
 
+  if line =~ 'case\s*\S*;'
+    let ind -= &sw
+  endif
+
   if line =~ '^\s*[)}]'
     let ind -= &sw
   endif
